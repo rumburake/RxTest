@@ -27,4 +27,15 @@ class startWith {
             .subscribe(System.out::println)
     }
 
+    @Test
+    fun startWithIterable() {
+        val menu = Observable.just("Coffee", "Tea", "Espresso", "Latte")
+
+        //print menu
+        menu.startWithIterable(listOf("a", "b", "c"))
+            .subscribe(System.out::println)
+    }
+
+
+
 }
