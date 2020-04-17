@@ -1,10 +1,7 @@
 package operators.suppressing
 
-import io.reactivex.Observable
-import io.reactivex.functions.Consumer
+import io.reactivex.rxjava3.core.Observable
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.junit.runners.JUnit4
 import java.util.concurrent.TimeUnit
 
 class take() {

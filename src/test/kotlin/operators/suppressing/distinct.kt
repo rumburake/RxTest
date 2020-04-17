@@ -1,13 +1,13 @@
 package operators.suppressing
 
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 import org.junit.Test
 
 class distinct {
 
     @Test
     fun distinctSimple() {
-        val subscribe: Any = Observable.just("Alpha", "Beta", "Gamma", "Delta", "Epsilon")
+        Observable.just("Alpha", "Beta", "Gamma", "Delta", "Epsilon")
             .map { it.length }
             .distinct()
             .subscribe({ i -> println("RECEIVED: $i") })
@@ -15,7 +15,7 @@ class distinct {
 
     @Test
     fun distinctMap() {
-        val subscribe: Any = Observable.just("Alpha", "Beta", "Gamma", "Delta", "Epsilon")
+        Observable.just("Alpha", "Beta", "Gamma", "Delta", "Epsilon")
             .distinct { it.length}
             .subscribe({ i -> println("RECEIVED: $i") })
     }

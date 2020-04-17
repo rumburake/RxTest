@@ -1,6 +1,6 @@
 package operators.suppressing
 
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 import org.junit.Test
 
 class filter() {
@@ -13,8 +13,7 @@ class filter() {
                         .subscribe(
                                 { System.out.println("Got: $it")},
                                 { System.out.println("Error")},
-                                { System.out.println("Complete!")},
-                                { println("Subscribe...")}
+                                { System.out.println("Complete!")}
                         )
         }
 
