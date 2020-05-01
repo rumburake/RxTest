@@ -9,9 +9,15 @@ data class Fib(
     val prev: Long,
     val cur: Long
 ) {
-    constructor(): this(0, 1, 0)
+    constructor(): this(0, 0, 1)
 
     fun next() = Fib(index + 1, cur, prev + cur)
+
+    fun ratio() = if (prev != 0L) {
+        cur.toDouble() / prev
+    } else {
+        0
+    }
 }
 
 
@@ -21,7 +27,7 @@ class scan {
     fun fibonacci() {
         Observable.interval(100, TimeUnit.MILLISECONDS)
             .scan ( Fib(), { fib, _ -> fib.next() })
-            .subscribe { println("Got: $it")}
-        Thread.sleep(30000)
+            .subscribe { println("Got: $it - Ratio: ${it.ratio()}")}
+        Thread.sleep(5000)
     }
 }
