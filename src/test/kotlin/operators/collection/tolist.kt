@@ -1,4 +1,4 @@
-package operators.reducing.collection
+package operators.collection
 
 import io.reactivex.rxjava3.core.Observable
 import org.junit.Test

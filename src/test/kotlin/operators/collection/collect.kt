@@ -1,10 +1,7 @@
-package operators.reducing.collection
+package operators.collection
 
 import com.google.common.collect.ImmutableList
 import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.functions.BiConsumer
-import io.reactivex.rxjava3.functions.Function
-import io.reactivex.rxjava3.functions.Supplier
 import org.junit.Test
 
 class collect {
