@@ -36,4 +36,21 @@ class flatmap {
             .subscribe { println("$it") }
         Thread.sleep(11000)
     }
+
+    @Test
+    fun interval() {
+        Observable.interval(1, TimeUnit.SECONDS)
+            .subscribe { println("$it") }
+        Thread.sleep(2500)
+    }
+
+    @Test
+    fun flatmap_combiner() {
+        Observable.just("one", "two", "three")
+            .flatMap(
+                { str -> Observable.fromIterable(str.split("")) },
+                { s, r -> s + " - " + r }
+            )
+            .subscribe { println("$it") }
+    }
 }
