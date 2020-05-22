@@ -1,6 +1,9 @@
 package reactive_operators
 
+import io.reactivex.rxjava3.core.Maybe
 import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.core.Single
+import io.reactivex.rxjava3.core.SingleSource
 import org.junit.Test
 import java.util.concurrent.TimeUnit
 
@@ -53,4 +56,33 @@ class flatmap {
             )
             .subscribe { println("$it") }
     }
+
+    @Test
+    fun flatmap_combiner_iterable() {
+        Observable.just("one", "two", "three")
+            .flatMapIterable(
+                { str -> str.split("") },
+                { s, r -> s + " - " + r }
+            )
+            .subscribe { println("$it") }
+    }
+
+    @Test
+    fun flatmap_single() {
+        Observable.just("one", "two", "three")
+            .flatMapSingle {str -> Single.just(str.length) }
+            .subscribe { println("$it") }
+    }
+
+    @Test
+    fun flatmap_maybe() {
+        Observable.just("one", "two", "three")
+            .flatMapMaybe {str -> if (str.length > 3) {
+                Maybe. just(str.length)
+            } else {
+                Maybe.empty()
+            } }
+            .subscribe { println("$it") }
+    }
+
 }
